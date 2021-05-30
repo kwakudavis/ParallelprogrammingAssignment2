@@ -268,7 +268,7 @@ int ZhangSuenThinningAlgorithm( int*array, int rows, int columns){
 
 
     // Executing kernel
-  // secondIteration<<<1,1>>>(array, rows, columns, state);
+   secondIteration<<<1,1>>>(array, rows, columns, state);
 
 
 //  secondIteration(array,rows, columns, state);
@@ -409,12 +409,12 @@ int main(int argc, char *argv[]){
 
        //Allocation of host memory
         int *arr1;
-        int *d_a;
+
     //    int *d_rows;
     //    int *d_columns;
 
 
-        const int size = rows * columns * sizeof(int);
+        //const int size = rows * columns * sizeof(int);
         arr1  = (int*)malloc(sizeof(int) * rows * columns);
       //  d_rows = (int*)malloc(sizeof(int));
       //  d_columns = (int*)malloc(sizeof(int));
@@ -423,14 +423,14 @@ int main(int argc, char *argv[]){
 
 
         // Allocate device memory
+        int *d_a;
         cudaMalloc((void**)&d_a, sizeof(int) * rows * columns);
     //    cudaMalloc((void**)&d_rows, sizeof(int));
     //    cudaMalloc((void**)&d_columns, sizeof(int));
 
 
 
-    // Transfer data from host to device memory
-      cudaMemcpy(d_a, arr1, sizeof(int) * rows * columns, cudaMemcpyHostToDevice);
+
 
 
 
@@ -505,7 +505,8 @@ int main(int argc, char *argv[]){
 
 
 
-
+        // Transfer data from host to device memory
+          cudaMemcpy(d_a, arr1, sizeof(int) * rows * columns, cudaMemcpyHostToDevice);
 
 
 //Start Timer
