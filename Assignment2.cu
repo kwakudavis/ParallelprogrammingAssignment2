@@ -136,12 +136,13 @@ __global__ void secondIteration ( int*array, int rows, int columns,bool state){
 
          int blackPixCounter;
 
-         int i = blockIdx.x * blockDim.x + threadIdx.x;
- 	       int j = blockIdx.y * blockDim.y + threadIdx.y;
+         int index = threadIdx.x;
+         int stride = blockDim.x;
 
 
-         for (int i = 0; i < rows; i++){
-                    for (int j  = 0; j < columns; j++)  {
+
+         for ( i = index; i < rows; i += stride){
+                    for ( j  = 0; j < columns; j++)  {
 
 
 
