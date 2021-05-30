@@ -30,14 +30,6 @@ __global__ void vector_add(float *out, float *a, float *b, int n) {
     }
 }
 
-__global__ void vector_add2(float *out, float *a, float *b, int n) {
-    for(int i = 0; i < n; i ++){
-        out[i] = a[i] + b[i];
-    }
-
-   vector_add<<<1,1>>>(d_out, d_a, d_b, N);
-}
-
 
 
 
@@ -66,7 +58,7 @@ int main(){
     cudaMemcpy(d_b, b, sizeof(float) * N, cudaMemcpyHostToDevice);
 
     // Executing kernel
-    vector_add2<<<1,1>>>(d_out, d_a, d_b, N);
+    vector_add<<<1,1>>>(d_out, d_a, d_b, N);
 
 
 
