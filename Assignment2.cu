@@ -201,7 +201,7 @@ __global__ void secondIteration ( int*array, int rows, int columns,bool state){
                         }
 
 
-                      if( blackPixCounter > 2 && blackPixCounter <= 6){
+                      if( blackPixCounter >= 2 && blackPixCounter <= 6){
                           state = true;
 
                       }
