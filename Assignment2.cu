@@ -216,7 +216,7 @@ __global__ void secondIteration ( int*array, int rows, int columns,bool state){
                             array[i*columns+j] = 0;
                           }
 
-                    state = false;
+                    state = true;
 
                     }
 
