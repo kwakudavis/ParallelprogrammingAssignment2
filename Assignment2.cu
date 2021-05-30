@@ -141,8 +141,8 @@ __global__ void secondIteration ( int*array, int rows, int columns,bool state){
 
 
 
-         for ( i = index; i < rows; i += stride){
-                    for ( j  = 0; j < columns; j++)  {
+         for ( int i = index; i < rows; i += stride){
+                    for ( int j  = 0; j < columns; j++)  {
 
 
 
