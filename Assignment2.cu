@@ -445,7 +445,7 @@ int main(int argc, char *argv[]){
         //Get remaining lines
 
 
-      
+
           int columnCounter = 0;
           int rowCounter = 0;
 
@@ -523,7 +523,7 @@ double time = jbutil::gettime();
        cudaMemcpy(arr1, d_a, sizeof(int), cudaMemcpyDeviceToHost);
 
 
-           printf("out[0] = %f\n", out[0]);
+        
            printf("PASSED\n");
 
            // Deallocate device memory
