@@ -435,7 +435,6 @@ int main(int argc, char *argv[]){
 
 
 
-**/
 
 
 
@@ -445,8 +444,10 @@ int main(int argc, char *argv[]){
 
         //Get remaining lines
 
-        int rowCounter = 0;
-        int columnCounter = 0;
+
+      
+          int columnCounter = 0;
+          int rowCounter = 0;
 
         //while there are still more lines to read get words
         while(File.eof() != true){
@@ -527,13 +528,11 @@ double time = jbutil::gettime();
 
            // Deallocate device memory
            cudaFree(d_a);
-           cudaFree(d_b);
-           cudaFree(d_out);
+
 
            // Deallocate host memory
-           free(a);
-           free(b);
-           free(out);
+           free(arr1);
+
 
 
 //Stop timer
