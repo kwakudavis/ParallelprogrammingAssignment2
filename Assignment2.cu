@@ -268,7 +268,7 @@ int ZhangSuenThinningAlgorithm( int*array, int rows, int columns){
 
 
     // Executing kernel
-   secondIteration<<<1,1>>>(array, rows, columns, state);
+  // secondIteration<<<1,1>>>(array, rows, columns, state);
 
 
 //  secondIteration(array,rows, columns, state);
@@ -511,6 +511,7 @@ int main(int argc, char *argv[]){
 //Start Timer
 
 double time = jbutil::gettime();
+
         //Applying thinning algorithm on each pixel value
        ZhangSuenThinningAlgorithm(arr1, rows, columns);
 
@@ -523,7 +524,7 @@ double time = jbutil::gettime();
        cudaMemcpy(arr1, d_a, sizeof(int), cudaMemcpyDeviceToHost);
 
 
-        
+
            printf("PASSED\n");
 
            // Deallocate device memory
