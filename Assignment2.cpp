@@ -13,7 +13,7 @@ using namespace std;
 
 //First Iteration function global fucntion
 
-bool firstIteration ( int*array, int rows, int columns,bool state){
+void firstIteration ( int*array, int rows, int columns,bool state){
 
        int blackPixCounter;
 
@@ -107,7 +107,7 @@ bool firstIteration ( int*array, int rows, int columns,bool state){
 
 
 
-          return state;
+        
 
 
 
@@ -118,7 +118,7 @@ bool firstIteration ( int*array, int rows, int columns,bool state){
 
 //Second Iteration function global function
 
-bool secondIteration ( int*array, int rows, int columns,bool state){
+void secondIteration ( int*array, int rows, int columns,bool state){
 
 
 
@@ -212,7 +212,7 @@ bool secondIteration ( int*array, int rows, int columns,bool state){
             }
 
 
-            return state;
+
 
 
 
@@ -238,23 +238,23 @@ int ZhangSuenThinningAlgorithm( int*array, int rows, int columns){
 
     cout <<" The Output is "<<endl;
     bool state = true;
-    while(state){
+
 
 
     //First iteration
 
 
-    state = firstIteration(array,rows, columns, state);
+     firstIteration(array,rows, columns, state);
 
 
     //Second iteration
 
-    state = secondIteration(array,rows, columns, state);
+     secondIteration(array,rows, columns, state);
 
 
 
 
-}
+
 
 
     return 0;
