@@ -505,8 +505,8 @@ int main(int argc, char *argv[]){
 
 
 
-        // Transfer data from host to device memory
-          cudaMemcpy(d_a, arr1, sizeof(int) * rows * columns, cudaMemcpyHostToDevice);
+      // Transfer data from host to device memory
+      cudaMemcpy(d_a, arr1, sizeof(int) * rows * columns, cudaMemcpyHostToDevice);
 
 
 //Start Timer
@@ -528,12 +528,10 @@ double time = jbutil::gettime();
 
            printf("PASSED\n");
 
-           // Deallocate device memory
-           cudaFree(d_a);
 
 
-           // Deallocate host memory
-           free(arr1);
+
+
 
 
 
@@ -546,6 +544,12 @@ time = jbutil::gettime() - time;
        cout<<"Time taken is:"<<time<<"s"<<endl;
 
 
+
+       // Deallocate device memory
+       cudaFree(d_a);
+
+       // Deallocate host memory
+       free(arr1);
 
 
 
