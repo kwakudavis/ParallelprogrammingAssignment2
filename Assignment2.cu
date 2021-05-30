@@ -249,7 +249,7 @@ __global__ void secondIteration ( int*array, int rows, int columns,bool state){
 int ZhangSuenThinningAlgorithm( int*array, int rows, int columns){
 
     cout <<" The Output is "<<endl;
-    bool state = false;
+    bool state = true;
 
 
 
@@ -257,7 +257,9 @@ int ZhangSuenThinningAlgorithm( int*array, int rows, int columns){
 
 
   // firstIteration(array,rows, columns, state);
+int i = 30;
 
+while (i < 30) {
 
    // Executing kernel
   firstIteration<<<1,1>>>(array, rows, columns, state);
@@ -273,9 +275,9 @@ int ZhangSuenThinningAlgorithm( int*array, int rows, int columns){
 
 //  secondIteration(array,rows, columns, state);
 
+i++;
 
-
-
+}
 
     return 0;
 
