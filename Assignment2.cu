@@ -109,7 +109,7 @@ __global__ void firstIteration ( int*array, int rows, int columns,bool state){
                           array[i*columns+j] = 0;
                         }
 
-                  state = true;
+                  state = false;
 
                   }
 
@@ -216,7 +216,7 @@ __global__ void secondIteration ( int*array, int rows, int columns,bool state){
                             array[i*columns+j] = 0;
                           }
 
-                    state = true;
+                    state = false;
 
                     }
 
@@ -249,7 +249,7 @@ __global__ void secondIteration ( int*array, int rows, int columns,bool state){
 int ZhangSuenThinningAlgorithm( int*array, int rows, int columns){
 
     cout <<" The Output is "<<endl;
-    bool state = true;
+    bool state = false;
 
 
 
