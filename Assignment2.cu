@@ -274,9 +274,6 @@ int ZhangSuenThinningAlgorithm( int*array, int rows, int columns){
 //  secondIteration(array,rows, columns, state);
 
 
-
-}
-
     return 0;
 
 }
