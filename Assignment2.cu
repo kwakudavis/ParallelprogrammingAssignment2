@@ -256,12 +256,22 @@ int ZhangSuenThinningAlgorithm( int*array, int rows, int columns){
     //First iteration
 
 
-   firstIteration(array,rows, columns, state);
+  // firstIteration(array,rows, columns, state);
+
+
+   // Executing kernel
+  firstIteration<<<1,1>>>(array, rows, columns, state);
 
 
     //Second iteration
 
-  secondIteration(array,rows, columns, state);
+
+
+    // Executing kernel
+   secondIteration<<<1,1>>>(array, rows, columns, state);
+
+
+//  secondIteration(array,rows, columns, state);
 
 
 
@@ -400,44 +410,30 @@ int main(int argc, char *argv[]){
        //Allocation of host memory
         int *arr1;
         int *d_a;
+    //    int *d_rows;
+    //    int *d_columns;
+
+
         const int size = rows * columns * sizeof(int);
         arr1  = (int*)malloc(sizeof(int) * rows * columns);
+      //  d_rows = (int*)malloc(sizeof(int));
+      //  d_columns = (int*)malloc(sizeof(int));
 
 
 
 
         // Allocate device memory
         cudaMalloc((void**)&d_a, sizeof(int) * rows * columns);
+    //    cudaMalloc((void**)&d_rows, sizeof(int));
+    //    cudaMalloc((void**)&d_columns, sizeof(int));
 
 
 
-        /**
-
-        // Transfer data from host to device memory
-        cudaMemcpy(d_a, a, sizeof(float) * N, cudaMemcpyHostToDevice);
-        cudaMemcpy(d_b, b, sizeof(float) * N, cudaMemcpyHostToDevice);
-
-        // Executing kernel
-        vector_add<<<1,1>>>(d_out, d_a, d_b, N);
+    // Transfer data from host to device memory
+      cudaMemcpy(d_a, arr1, sizeof(int) * rows * columns, cudaMemcpyHostToDevice);
 
 
 
-        // Transfer data back to host memory
-        cudaMemcpy(out, d_out, sizeof(float) * N, cudaMemcpyDeviceToHost);
-
-
-            printf("out[0] = %f\n", out[0]);
-            printf("PASSED\n");
-
-            // Deallocate device memory
-            cudaFree(d_a);
-            cudaFree(d_b);
-            cudaFree(d_out);
-
-            // Deallocate host memory
-            free(a);
-            free(b);
-            free(out);
 
 **/
 
@@ -516,6 +512,28 @@ int main(int argc, char *argv[]){
 double time = jbutil::gettime();
         //Applying thinning algorithm on each pixel value
        ZhangSuenThinningAlgorithm(arr1, rows, columns);
+
+
+
+
+
+
+       // Transfer data back to host memory
+       cudaMemcpy(arr1, d_a, sizeof(int), cudaMemcpyDeviceToHost);
+
+
+           printf("out[0] = %f\n", out[0]);
+           printf("PASSED\n");
+
+           // Deallocate device memory
+           cudaFree(d_a);
+           cudaFree(d_b);
+           cudaFree(d_out);
+
+           // Deallocate host memory
+           free(a);
+           free(b);
+           free(out);
 
 
 //Stop timer
