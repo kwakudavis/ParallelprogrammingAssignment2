@@ -51,7 +51,7 @@ __global__ void firstIteration ( int*array, int rows, int columns){
                     ///Counting number of black neighbors
 
 
-
+/**
                     //If north is black, increase black neighbor pixel counter
                     if((i-1)>0){
 
@@ -62,7 +62,7 @@ __global__ void firstIteration ( int*array, int rows, int columns){
 
                     }
 
-                /**    //If south is black,increase pixel neighbor counter
+                   //If south is black,increase pixel neighbor counter
                     if((i+1)<rows){
 
 
@@ -95,7 +95,7 @@ __global__ void firstIteration ( int*array, int rows, int columns){
                           }
 
                       }
-**/
+
 
                     if( blackPixCounter > 2 && blackPixCounter <= 6){
                         state = true;
@@ -114,7 +114,7 @@ __global__ void firstIteration ( int*array, int rows, int columns){
 
                   state = false;
 
-
+**/
 
                   }
 
