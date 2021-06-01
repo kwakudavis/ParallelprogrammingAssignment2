@@ -43,7 +43,7 @@ __global__ void firstIteration ( int*array, int rows, int columns){
 
     //                if(array[i*columns+j] == 1){
 
-
+/**
 
                     //Black pixel counter
                        blackPixCounter=0;
@@ -112,7 +112,7 @@ __global__ void firstIteration ( int*array, int rows, int columns){
                          array[i*columns+j] = 0;
                         }
 
-                  state = false;
+                  state = false;  **/
 
 
 
