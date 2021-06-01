@@ -33,9 +33,9 @@ __global__ void firstIteration ( int*array, int rows, int columns){
 
        bool state = true;
 
-/**
+
        for ( int i = index; i < rows; i += stride){
-                  for (int j  = 0; j < columns; j++)  {
+                /**  for (int j  = 0; j < columns; j++)  {
 
 
 
@@ -116,10 +116,10 @@ __global__ void firstIteration ( int*array, int rows, int columns){
 
 
 
-                 }
+                }**/
 
 
-          } **/
+          }
 
 
 
