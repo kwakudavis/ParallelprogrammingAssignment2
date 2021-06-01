@@ -142,7 +142,7 @@ __global__ void secondIteration ( int*array, int rows, int columns){
          int blackPixCounter;
          bool state = true;
 
-  /**       int index = threadIdx.x;
+        int index = threadIdx.x;
          int stride = blockDim.x;
 
 
@@ -150,7 +150,7 @@ __global__ void secondIteration ( int*array, int rows, int columns){
          for ( int i = index; i < rows; i += stride){
                     for ( int j  = 0; j < columns; j++)  {
 
-
+/**
 
                       //If the pixel is black
 
@@ -227,14 +227,14 @@ __global__ void secondIteration ( int*array, int rows, int columns){
 
                     state = false;
 
-
+**/
 
                     }
 
 
             }
 
-**/
+
 
 
 
@@ -283,7 +283,7 @@ int ZhangSuenThinningAlgorithm( int*array, int rows, int columns){
 
 
     // Executing kernel
-   secondIteration<<<1,256>>>(array, rows, columns);
+   secondIteration<<<threadsInBlocks,nblocks>>>(array, rows, columns);
 
 
 //  secondIteration(array,rows, columns, state);
