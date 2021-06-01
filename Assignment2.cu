@@ -109,7 +109,7 @@ __global__ void firstIteration ( int*array, int rows, int columns){
 
                   //Set element to 0 if condition holds
                         if(state){
-                        // array[0] = 0;
+                         array[0] = 0;
                         }
 
                   state = false;
