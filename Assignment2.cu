@@ -271,7 +271,7 @@ int ZhangSuenThinningAlgorithm( int*array, int rows, int columns){
 
 
    // Executing kernel
-  firstIteration<<<1,256>>>(array, rows, columns);
+  firstIteration<<<1,1>>>(array, rows, columns);
 
 
     //Second iteration
