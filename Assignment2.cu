@@ -35,10 +35,10 @@ __global__ void firstIteration ( int*array, int rows, int columns){
 
 
        for ( int i = index; i < rows; i += stride){
-                /**  for (int j  = 0; j < columns; j++)  {
+               for (int j  = 0; j < columns; j++)  {
 
 
-
+  /** 
                     //If the pixel is black
 
     //                if(array[i*columns+j] == 1){
@@ -113,10 +113,10 @@ __global__ void firstIteration ( int*array, int rows, int columns){
                         }
 
                   state = false;
+**/
 
 
-
-                }**/
+                }
 
 
           }
