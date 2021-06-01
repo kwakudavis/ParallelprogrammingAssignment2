@@ -270,8 +270,8 @@ int ZhangSuenThinningAlgorithm( int*array, int rows, int columns){
   // firstIteration(array,rows, columns, state);
 
   //determine structure for blocks and grids for the kernels
-  int threadsInBlocks = 128;
-  const int nblocks = (rows + (threadsInBlocks-1)) / threadsInBlocks;
+//  int threadsInBlocks = 128;
+//  const int nblocks = (rows + (threadsInBlocks-1)) / threadsInBlocks;
 
    // Executing kernel
    firstIteration<<1,256>>(array, rows, columns);
