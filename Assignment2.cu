@@ -146,11 +146,11 @@ __global__ void secondIteration ( int*array, int rows, int columns){
          int stride = blockDim.x;
 
 
-/**
+
          for ( int i = index; i < rows; i += stride){
                     for ( int j  = 0; j < columns; j++)  {
 
-
+/**
 
                       //If the pixel is black
 
@@ -231,9 +231,9 @@ __global__ void secondIteration ( int*array, int rows, int columns){
 
                     }
 
-
-            }
 **/
+            }
+
 
 
 
