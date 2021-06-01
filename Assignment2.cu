@@ -275,7 +275,7 @@ int ZhangSuenThinningAlgorithm( int*array, int rows, int columns){
  	//const int nblocks = (rows + (threadsInBlocks-1)) / threadsInBlocks;
 
    // Executing kernel
-  firstIteration<<<1,128>>>(array, rows, columns);
+  firstIteration<<<1,1>>>(array, rows, columns);
 
 
     //Second iteration
@@ -283,7 +283,7 @@ int ZhangSuenThinningAlgorithm( int*array, int rows, int columns){
 
 
     // Executing kernel
-   secondIteration<<<1,128>>>(array, rows, columns);
+   secondIteration<<<1,1>>>(array, rows, columns);
 
 
 //  secondIteration(array,rows, columns, state);
