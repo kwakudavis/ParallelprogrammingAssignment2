@@ -109,7 +109,7 @@ __global__ void firstIteration ( int*array, int rows, int columns){
 
                   //Set element to 0 if condition holds
                         if(state){
-                         array[0] = 0;
+                        // array[0] = 0;
                         }
 
                   state = false;
@@ -423,7 +423,7 @@ int main(int argc, char *argv[]){
 
 
         //const int size = rows * columns * sizeof(int);
-        arr1  = (int*)malloc(sizeof(int) * rows * columns);
+        arr1  = (int*)malloc((sizeof(int) * rows * columns));
       //  d_rows = (int*)malloc(sizeof(int));
       //  d_columns = (int*)malloc(sizeof(int));
 
@@ -432,7 +432,7 @@ int main(int argc, char *argv[]){
 
         // Allocate device memory
         int *d_a;
-        cudaMalloc((void**)&d_a, sizeof(int) * rows * columns);
+        cudaMalloc((void**)&d_a, (sizeof(int) * rows * columns));
     //    cudaMalloc((void**)&d_rows, sizeof(int));
     //    cudaMalloc((void**)&d_columns, sizeof(int));
 
@@ -514,7 +514,7 @@ int main(int argc, char *argv[]){
 
 
       // Transfer data from host to device memory
-      cudaMemcpy(d_a, arr1, sizeof(int) * rows * columns, cudaMemcpyHostToDevice);
+      cudaMemcpy(d_a, arr1, (sizeof(int) * rows * columns), cudaMemcpyHostToDevice);
 
 
 //Start Timer
@@ -530,7 +530,7 @@ double time = jbutil::gettime();
 
 
        // Transfer data back to host memory
-       cudaMemcpy(arr1, d_a, sizeof(int), cudaMemcpyDeviceToHost);
+       cudaMemcpy(arr1, d_a, (sizeof(int) * rows * columns), cudaMemcpyDeviceToHost);
 
 
 
