@@ -551,8 +551,12 @@ time = jbutil::gettime() - time;
        // Deallocate host memory
        free(arr1);
 
+cudaError_t err = cudaGetLastError();  // add
+if (err != cudaSuccess) std::cout << "CUDA error: " << cudaGetErrorString(err) << std::endl; // add
+cudaProfilerStop();
+return 0;
 
 
-       return 1;
+    
 
 }
