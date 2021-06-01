@@ -33,7 +33,7 @@ __global__ void firstIteration ( int*array, int rows, int columns){
 
        bool state = true;
 
-      // array[0] = 0;
+       
        for ( int i = index; i < rows; i += stride){
                for (int j  = 0; j < columns; j++)  {
 
@@ -269,12 +269,9 @@ int ZhangSuenThinningAlgorithm( int*array, int rows, int columns){
 
   // firstIteration(array,rows, columns, state);
 
-  //determine structure for blocks and grids for the kernels
-//  int threadsInBlocks = 128;
-//  const int nblocks = (rows + (threadsInBlocks-1)) / threadsInBlocks;
 
    // Executing kernel
-   firstIteration<<1,256>>(array, rows, columns);
+  firstIteration<<<1,1>>>(array, rows, columns);
 
 
     //Second iteration
@@ -282,7 +279,7 @@ int ZhangSuenThinningAlgorithm( int*array, int rows, int columns){
 
 
     // Executing kernel
-   secondIteration<<1,256>>(array, rows, columns);
+   secondIteration<<<1,256>>>(array, rows, columns);
 
 
 //  secondIteration(array,rows, columns, state);
