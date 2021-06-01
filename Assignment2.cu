@@ -25,13 +25,16 @@ using namespace std;
 
 //First Iteration function global fucntion
 
-__global__ void firstIteration ( int*array, int rows, int columns,bool state){
+__global__ void firstIteration ( int*array, int rows, int columns){
 
        int blackPixCounter;
+       int index = threadIdx.x;
+       int stride = blockDim.x;
+
+       bool state = true;
 
 
-
-       for (int i = 0; i < rows; i++){
+       for ( int i = index; i < rows; i += stride){
                   for (int j  = 0; j < columns; j++)  {
 
 
@@ -130,11 +133,12 @@ __global__ void firstIteration ( int*array, int rows, int columns,bool state){
 
 //Second Iteration function global function
 
-__global__ void secondIteration ( int*array, int rows, int columns,bool state){
+__global__ void secondIteration ( int*array, int rows, int columns){
 
 
 
          int blackPixCounter;
+         bool state = true;
 
          int index = threadIdx.x;
          int stride = blockDim.x;
@@ -252,7 +256,7 @@ __global__ void secondIteration ( int*array, int rows, int columns,bool state){
 int ZhangSuenThinningAlgorithm( int*array, int rows, int columns){
 
     cout <<" The Output is "<<endl;
-    bool state = true;
+
 
 
 
@@ -263,7 +267,7 @@ int ZhangSuenThinningAlgorithm( int*array, int rows, int columns){
 
 
    // Executing kernel
-  firstIteration<<<1,128>>>(array, rows, columns, state);
+  firstIteration<<<1,128>>>(array, rows, columns);
 
 
     //Second iteration
@@ -271,7 +275,7 @@ int ZhangSuenThinningAlgorithm( int*array, int rows, int columns){
 
 
     // Executing kernel
-   secondIteration<<<1,128>>>(array, rows, columns, state);
+   secondIteration<<<1,128>>>(array, rows, columns);
 
 
 //  secondIteration(array,rows, columns, state);
