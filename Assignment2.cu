@@ -41,7 +41,7 @@ __global__ void firstIteration ( int*array, int rows, int columns){
 
                     //If the pixel is black
 
-            /**        if(array[i*columns+j] == 1){
+                    if(array[i*columns+j] == 1){
 
 
 
@@ -50,7 +50,7 @@ __global__ void firstIteration ( int*array, int rows, int columns){
 
                     ///Counting number of black neighbors
 
-
+/**
 
                     //If north is black, increase black neighbor pixel counter
                     if((i-1)>0){
